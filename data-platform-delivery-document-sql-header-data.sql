@@ -43,16 +43,15 @@ CREATE TABLE `data_platform_delivery_document_header_data`
     `GoodsIssueOrReceiptSlipNumber`            varchar(35) DEFAULT NULL,
     `HeaderBillingStatus`                      varchar(2) DEFAULT NULL,
     `HeaderBillingConfStatus`                  varchar(2) DEFAULT NULL,
-    `HeaderBillingBlockStatus`                 tinyint(1) DEFAULT NULL,
     `HeaderGrossWeight`                        float(15) DEFAULT NULL,
     `HeaderNetWeight`                          float(15) DEFAULT NULL,
     `HeaderWeightUnit`                         varchar(3) DEFAULT NULL,
     `Incoterms`                                varchar(3) DEFAULT NULL,
     `TransactionCurrency`                      varchar(5) DEFAULT NULL,
-    `StockIsFullyConfirmed`                    tinyint(1) DEFAULT NULL,
     `HeaderDeliveryBlockStatus`                tinyint(1) DEFAULT NULL,
     `HeaderIssuingBlockStatus`                 tinyint(1) DEFAULT NULL,
     `HeaderReceivingBlockStatus`               tinyint(1) DEFAULT NULL,
+    `HeaderBillingBlockStatus`                 tinyint(1) DEFAULT NULL,
     
     PRIMARY KEY (`DeliveryDocument`),
 
