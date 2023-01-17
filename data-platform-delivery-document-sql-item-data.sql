@@ -114,7 +114,8 @@ CREATE TABLE `data_platform_delivery_document_item_data`
     `ItemIssuingBlockStatus`                          tinyint(1) DEFAULT NULL,
     `ItemReceivingBlockStatus`                        tinyint(1) DEFAULT NULL,
     `ItemBillingBlockStatus`                          tinyint(1) DEFAULT NULL,
-    
+    `ItemIsCancelled`                                 tinyint(1) DEFAULT NULL,
+    `ItemIsDeleted`                                   tinyint(1) DEFAULT NULL,
     PRIMARY KEY (`DeliveryDocument`, `DeliveryDocumentItem`),
     
     CONSTRAINT `DataPlatformDeliveryDocumentItemData_fk` FOREIGN KEY (`DeliveryDocument`) REFERENCES `data_platform_delivery_document_header_data` (`DeliveryDocument`),

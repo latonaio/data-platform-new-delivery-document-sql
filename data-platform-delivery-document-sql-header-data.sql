@@ -52,7 +52,8 @@ CREATE TABLE `data_platform_delivery_document_header_data`
     `HeaderIssuingBlockStatus`                 tinyint(1) DEFAULT NULL,
     `HeaderReceivingBlockStatus`               tinyint(1) DEFAULT NULL,
     `HeaderBillingBlockStatus`                 tinyint(1) DEFAULT NULL,
-    
+    `HeaderIsCancelled`                        tinyint(1) DEFAULT NULL,
+    `HeaderIsDeleted`                          tinyint(1) DEFAULT NULL,
     PRIMARY KEY (`DeliveryDocument`),
 
     CONSTRAINT `DataPlatformDeliveryDocumentHeaderDataSupplyChainRelationshipDeliveryID_fk` FOREIGN KEY (`SupplyChainRelationshipID`, `SupplyChainRelationshipDeliveryID`, `Buyer`, `Seller`, `DeliverToParty`, `DeliverFromParty`) REFERENCES `data_platform_supply_chain_relationship_delivery_relation_data` (`SupplyChainRelationshipID`, `SupplyChainRelationshipDeliveryID`, `Buyer`, `Seller`, `DeliverToParty`, `DeliverFromParty`),
