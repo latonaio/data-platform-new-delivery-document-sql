@@ -52,8 +52,8 @@ CREATE TABLE `data_platform_delivery_document_header_data`
     `HeaderIssuingBlockStatus`                 tinyint(1) DEFAULT NULL,
     `HeaderReceivingBlockStatus`               tinyint(1) DEFAULT NULL,
     `HeaderBillingBlockStatus`                 tinyint(1) DEFAULT NULL,
-    `HeaderIsCancelled`                        tinyint(1) DEFAULT NULL,
-    `HeaderIsDeleted`                          tinyint(1) DEFAULT NULL,
+    `IsCancelled`                              tinyint(1) DEFAULT NULL,
+    `IsMarkedForDeletion`                      tinyint(1) DEFAULT NULL,
     
     PRIMARY KEY (`DeliveryDocument`),
 
