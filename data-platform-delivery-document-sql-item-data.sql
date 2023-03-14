@@ -87,6 +87,7 @@ CREATE TABLE `data_platform_delivery_document_item_data`
     `ActualGoodsIssueQtyInBaseUnit`                   float(15) DEFAULT NULL,
     `ActualGoodsReceiptQuantity`                      float(15) DEFAULT NULL,
     `ActualGoodsReceiptQtyInBaseUnit`                 float(15) DEFAULT NULL,
+    `QuantityPerPackage`                              float(15) DEFAULT NULL,
     `CreationDate`                                    date DEFAULT NULL,
     `CreationTime`                                    time DEFAULT NULL,
     `LastChangeDate`                                  date DEFAULT NULL,
