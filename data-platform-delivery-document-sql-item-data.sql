@@ -170,6 +170,6 @@ CREATE TABLE `data_platform_delivery_document_item_data`
     CONSTRAINT `DataPlatformDeliveryDocumentItemDataTaxCode_fk` FOREIGN KEY (`TaxCode`) REFERENCES `data_platform_tax_code_tax_code_data` (`TaxCode`),
     CONSTRAINT `DataPlatformDeliveryDocumentItemDataCountryOfOrigin_fk` FOREIGN KEY (`CountryOfOrigin`) REFERENCES `data_platform_country_country_data` (`Country`),
     CONSTRAINT `DataPlatformDeliveryDocumentItemDataCountryOfOriginLanguage_fk` FOREIGN KEY (`CountryOfOriginLanguage`) REFERENCES `data_platform_language_language_data` (`Language`)
-
+        
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4;

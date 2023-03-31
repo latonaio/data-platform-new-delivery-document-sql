@@ -21,6 +21,6 @@ CREATE TABLE `data_platform_delivery_document_partner_data`
     CONSTRAINT `DataPlatformDeliveryDocumentPartnerDataLanguage_fk` FOREIGN KEY (`Language`) REFERENCES `data_platform_language_language_data` (`Language`),
     CONSTRAINT `DataPlatformDeliveryDocumentPartnerDataCurrency_fk` FOREIGN KEY (`Currency`) REFERENCES `data_platform_currency_currency_data` (`Currency`),
     CONSTRAINT `DataPlatformDeliveryDocumentPartnerDataAddressID_fk` FOREIGN KEY (`AddressID`) REFERENCES `data_platform_address_address_data` (`AddressID`)
-
+    
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4;
