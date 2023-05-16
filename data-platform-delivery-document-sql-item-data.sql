@@ -117,7 +117,8 @@ CREATE TABLE `data_platform_delivery_document_item_data`
     `InvoicePeriodStartDate`                          date DEFAULT NULL,
     `InvoicePeriodEndDate`                            date DEFAULT NULL,
     `ConfirmedDeliveryDate`                           date DEFAULT NULL,
-    `Project`                                         varchar(24) DEFAULT NULL,
+    `Project`                                         int(16) DEFAULT NULL,
+    `WBSElement`                                      int(8) DEFAULT NULL,
     `ReferenceDocument`                               int(16) DEFAULT NULL,
     `ReferenceDocumentItem`                           int(6) DEFAULT NULL,
     `TransactionTaxClassification`                    varchar(1) NOT NULL,
@@ -130,6 +131,7 @@ CREATE TABLE `data_platform_delivery_document_item_data`
     `TaxRate`                                         float(6) DEFAULT NULL,
     `CountryOfOrigin`                                 varchar(3) DEFAULT NULL,
     `CountryOfOriginLanguage`                         varchar(2) DEFAULT NULL,
+    `Equipment`                                       int(20) DEFAULT NULL,
     `ItemDeliveryBlockStatus`                         tinyint(1) DEFAULT NULL,
     `ItemIssuingBlockStatus`                          tinyint(1) DEFAULT NULL,
     `ItemReceivingBlockStatus`                        tinyint(1) DEFAULT NULL,
@@ -167,9 +169,11 @@ CREATE TABLE `data_platform_delivery_document_item_data`
     CONSTRAINT `DataPlatformDeliveryDocumentItemDataPaymentTerms_fk` FOREIGN KEY (`PaymentTerms`) REFERENCES `data_platform_payment_terms_payment_terms_data` (`PaymentTerms`),
     CONSTRAINT `DataPlatformDeliveryDocumentItemDataPaymentMethod_fk` FOREIGN KEY (`PaymentMethod`) REFERENCES `data_platform_payment_method_payment_method_data` (`PaymentMethod`),
     CONSTRAINT `DataPlatformDeliveryDocumentItemDataProject_fk` FOREIGN KEY (`Project`) REFERENCES `data_platform_project_project_data` (`Project`),
+    CONSTRAINT `DataPlatformDeliveryDocumentItemDataWBSElement_fk` FOREIGN KEY (`Project`, `WBSElement`) REFERENCES `data_platform_project_wbs_element_data` (`Project`, `WBSElement`),
     CONSTRAINT `DataPlatformDeliveryDocumentItemDataTaxCode_fk` FOREIGN KEY (`TaxCode`) REFERENCES `data_platform_tax_code_tax_code_data` (`TaxCode`),
     CONSTRAINT `DataPlatformDeliveryDocumentItemDataCountryOfOrigin_fk` FOREIGN KEY (`CountryOfOrigin`) REFERENCES `data_platform_country_country_data` (`Country`),
-    CONSTRAINT `DataPlatformDeliveryDocumentItemDataCountryOfOriginLanguage_fk` FOREIGN KEY (`CountryOfOriginLanguage`) REFERENCES `data_platform_language_language_data` (`Language`)
-        
+    CONSTRAINT `DataPlatformDeliveryDocumentItemDataCountryOfOriginLanguage_fk` FOREIGN KEY (`CountryOfOriginLanguage`) REFERENCES `data_platform_language_language_data` (`Language`),
+    CONSTRAINT `DataPlatformDeliveryDocumentItemDataEquipment_fk` FOREIGN KEY (`Equipment`) REFERENCES `data_platform_equipment_master_general_data` (`Equipment`)
+
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4;
