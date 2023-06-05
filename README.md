@@ -13,6 +13,8 @@ data-platform-delivery-document-sql には、sqlの設定ファイルとして�
 * data-platform-delivery-document-sql-header-data.sql（データ連携基盤 入出荷伝票 - ヘッダデータ）
 * data-platform-delivery-document-header-doc-data.sql（データ連携基盤 入出荷伝票 - ヘッダ文書データ）
 * data-platform-delivery-document-sql-item-data.sql（データ連携基盤 入出荷伝票 - 明細データ）
+* data-platform-delivery-document-sql-item-picking-data.sql（データ連携基盤 入出荷伝票 - 明細ピッキングデータ）
+* data-platform-delivery-document-sql-item-freight-agreement-data.sql（データ連携基盤 入出荷伝票 - 明細輸送契約データ）
 * data-platform-delivery-document-sql-partner-data.sql（データ連携基盤 入出荷伝票 - 取引先データ）
 * data-platform-delivery-document-sql-address-data.sql（データ連携基盤 入出荷伝票 - 住所データ）
 
