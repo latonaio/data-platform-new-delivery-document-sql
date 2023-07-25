@@ -34,7 +34,7 @@ CREATE TABLE `data_platform_delivery_document_header_data`
     `ContractType`                             varchar(4) DEFAULT NULL,
     `OrderValidityStartDate`                   date DEFAULT NULL,
     `OrderValidityEndDate`                     date DEFAULT NULL,
-    `DocumentDate`                             date DEFAULT NULL,
+    `DeliveryDocumentDate`                     date NOT NULL,
     `PlannedGoodsIssueDate`                    date NOT NULL,
     `PlannedGoodsIssueTime`                    time NOT NULL,
     `PlannedGoodsReceiptDate`                  date NOT NULL,
