@@ -14,8 +14,8 @@ CREATE TABLE `data_platform_delivery_document_address_data`
     
     PRIMARY KEY (`DeliveryDocument`, `AddressID`),
     
-    CONSTRAINT `DataPlatformDeliveryDocumentAddressData_fk` FOREIGN KEY (`DeliveryDocument`) REFERENCES `data_platform_delivery_document_header_data` (`DeliveryDocument`),
-    CONSTRAINT `DataPlatformDeliveryDocumentAddressDataAddressID_fk` FOREIGN KEY (`AddressID`) REFERENCES `data_platform_address_address_data` (`AddressID`)
+    CONSTRAINT `DPFMDeliveryDocumentAddressData_fk` FOREIGN KEY (`DeliveryDocument`) REFERENCES `data_platform_delivery_document_header_data` (`DeliveryDocument`),
+    CONSTRAINT `DPFMDeliveryDocumentAddressDataAddressID_fk` FOREIGN KEY (`AddressID`) REFERENCES `data_platform_address_address_data` (`AddressID`)
     
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4;

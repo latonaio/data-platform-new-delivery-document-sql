@@ -23,9 +23,9 @@ CREATE TABLE `data_platform_delivery_document_item_freight_agreement_data`
 
   PRIMARY KEY (`DeliveryDocument`, `DeliveryDocumentItem`, `DeliveryDocumentItemFreightAgreement`),
     
-  CONSTRAINT `DataPlatformDeliveryDocumentItemFreightAgreementData_fk` FOREIGN KEY (`DeliveryDocument`, `DeliveryDocumentItem`) REFERENCES `data_platform_delivery_document_item_data` (`DeliveryDocument`, `DeliveryDocumentItem`),
-  CONSTRAINT `DataPlatformDeliveryDocumentItemFreightAgreementDataFreightAgreementItem_fk` FOREIGN KEY (`FreightAgreement`, `FreightAgreementItem`) REFERENCES `data_platform_freight_agreement_item_data` (`FreightAgreement`, `FreightAgreementItem`),
-  CONSTRAINT `DataPlatformDeliveryDocumentItemFreightAgreementDataProduct_fk` FOREIGN KEY (`Product`) REFERENCES `data_platform_product_master_general_data` (`Product`)
+  CONSTRAINT `DPFMDeliveryDocumentItemFreightAgreementData_fk` FOREIGN KEY (`DeliveryDocument`, `DeliveryDocumentItem`) REFERENCES `data_platform_delivery_document_item_data` (`DeliveryDocument`, `DeliveryDocumentItem`),
+  CONSTRAINT `DPFMDeliveryDocumentItemFreightAgreementDataFreightAgreementItem_fk` FOREIGN KEY (`FreightAgreement`, `FreightAgreementItem`) REFERENCES `data_platform_freight_agreement_item_data` (`FreightAgreement`, `FreightAgreementItem`),
+  CONSTRAINT `DPFMDeliveryDocumentItemFreightAgreementDataProduct_fk` FOREIGN KEY (`Product`) REFERENCES `data_platform_product_master_general_data` (`Product`)
 
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4;
