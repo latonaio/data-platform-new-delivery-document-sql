@@ -13,9 +13,9 @@ CREATE TABLE `data_platform_delivery_document_item_picking_doc_data`
   
     PRIMARY KEY (`DeliveryDocument`, `DeliveryDocumentItem`, `DeliveryDocumentItemPickingID`, `DocType`, `DocVersionID`, `DocID`),
     
-    CONSTRAINT `DPFMDeliveryDocumentItemPickingDocData_fk` FOREIGN KEY (`DeliveryDocument`, `DeliveryDocumentItem`, `DeliveryDocumentItemPickingID`) REFERENCES `data_platform_delivery_document_item_picking_data` (`DeliveryDocument`, `DeliveryDocumentItem`, `DeliveryDocumentItemPickingID`),
+    -- CONSTRAINT `DPFMDeliveryDocumentItemPickingDocData_fk` FOREIGN KEY (`DeliveryDocument`, `DeliveryDocumentItem`, `DeliveryDocumentItemPickingID`) REFERENCES `data_platform_delivery_document_item_picking_data` (`DeliveryDocument`, `DeliveryDocumentItem`, `DeliveryDocumentItemPickingID`),  テーブルなし
     CONSTRAINT `DPFMDeliveryDocumentItemPickingDocDataDocType_fk` FOREIGN KEY (`DocType`) REFERENCES `data_platform_doc_type_doc_type_data` (`DocType`),
-    CONSTRAINT `DPFMDeliveryDocumentItemPickingDocDataDocIssuerBusinessPartner_fk` FOREIGN KEY (`DocIssuerBusinessPartner`) REFERENCES `data_platform_business_partner_general_data` (`BusinessPartner`)
+    -- CONSTRAINT `DPFMDeliveryDocumentItemPickingDocDataDocIssuerBusinessPartner_fk` FOREIGN KEY (`DocIssuerBusinessPartner`) REFERENCES `data_platform_business_partner_general_data` (`BusinessPartner`) too long
 
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4;
