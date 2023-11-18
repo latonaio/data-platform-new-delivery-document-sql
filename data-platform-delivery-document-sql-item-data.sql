@@ -139,6 +139,8 @@ CREATE TABLE `data_platform_delivery_document_item_data`
     `ItemIssuingBlockStatus`                          tinyint(1) DEFAULT NULL,
     `ItemReceivingBlockStatus`                        tinyint(1) DEFAULT NULL,
     `ItemBillingBlockStatus`                          tinyint(1) DEFAULT NULL,
+    `ExternalReferenceDocument`                       varchar(100) DEFAULT NULL,
+    `ExternalReferenceDocumentItem`                   varchar(10) DEFAULT NULL,
     `CreationDate`                                    date NOT NULL,
     `CreationTime`                                    time NOT NULL,
     `LastChangeDate`                                  date NOT NULL,

@@ -54,6 +54,7 @@ CREATE TABLE `data_platform_delivery_document_header_data`
     `HeaderDeliveryBlockStatus`                tinyint(1) DEFAULT NULL,
     `HeaderIssuingBlockStatus`                 tinyint(1) DEFAULT NULL,
     `HeaderReceivingBlockStatus`               tinyint(1) DEFAULT NULL,
+    `ExternalReferenceDocument`                varchar(100) DEFAULT NULL,
     `CreationDate`                             date NOT NULL,
     `CreationTime`                             time NOT NULL,
     `LastChangeDate`                           date NOT NULL,
