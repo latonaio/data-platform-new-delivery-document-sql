@@ -11,10 +11,11 @@ CREATE TABLE `data_platform_delivery_document_partner_data`
     `Currency`                        varchar(5) DEFAULT NULL,
     `ExternalDocumentID`              varchar(40) DEFAULT NULL,
     `AddressID`                       int(12) DEFAULT NULL,
+    `EmailAddress`                    varchar(200) DEFAULT NULL,
     
     PRIMARY KEY (`DeliveryDocument`, `PartnerFunction`, `BusinessPartner`),
     
-    -- CONSTRAINT `DPFMDeliveryDocumentPartnerData_fk` FOREIGN KEY (`DeliveryDocument`) REFERENCES `data_platform_orders_header_data` (`DeliveryDocument`),    references先にdelivery documentのkeyがない
+    CONSTRAINT `DPFMDeliveryDocumentPartnerData_fk` FOREIGN KEY (`DeliveryDocument`) REFERENCES `data_platform_delivery_document_header_data` (`DeliveryDocument`),
     CONSTRAINT `DPFMDeliveryDocumentPartnerDataPartnerFunction_fk` FOREIGN KEY (`PartnerFunction`) REFERENCES `data_platform_partner_function_partner_function_data` (`PartnerFunction`),
     CONSTRAINT `DPFMDeliveryDocumentPartnerDataBusinessPartner_fk` FOREIGN KEY (`BusinessPartner`) REFERENCES `data_platform_business_partner_general_data` (`BusinessPartner`),
     CONSTRAINT `DPFMDeliveryDocumentPartnerDataCountry_fk` FOREIGN KEY (`Country`) REFERENCES `data_platform_country_country_data` (`Country`),

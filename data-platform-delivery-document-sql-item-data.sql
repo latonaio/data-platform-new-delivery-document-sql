@@ -178,12 +178,12 @@ CREATE TABLE `data_platform_delivery_document_item_data`
     -- CONSTRAINT `DPFMDeliveryDocumentItemDataInspectionPlant_fk` FOREIGN KEY (`InspectionPlant`) REFERENCES `data_platform_plant_general_data` (`Plant`),  不明 
     CONSTRAINT `DPFMDeliveryDocumentItemDataOrderItem_fk` FOREIGN KEY (`OrderID`, `OrderItem`) REFERENCES `data_platform_orders_item_data` (`OrderID`, `OrderItem`),
     CONSTRAINT `DPFMDeliveryDocumentItemDataProductionOrder_fk` FOREIGN KEY (`ProductionOrder`, `ProductionOrderItem`) REFERENCES `data_platform_production_order_item_data` (`ProductionOrder`, `ProductionOrderItem`),
-    -- CONSTRAINT `DPFMDeliveryDocumentItemDataOperations_fk` FOREIGN KEY (`Operations`, `OperationsItem`) REFERENCES `data_platform_production_operations_item_data` (`Operations`, `OperationsItem`),　テーブルなし
-    -- CONSTRAINT `DPFMDeliveryDocumentItemDataBillOfMaterial_fk` FOREIGN KEY (`BillOfMaterial`, `BillOfMaterialItem`) REFERENCES `data_platform_production_bill_of_material_item_data` (`BillOfMaterial`, `BillOfMaterialItem`),　テーブルなし
+    CONSTRAINT `DPFMDeliveryDocumentItemDataOperations_fk` FOREIGN KEY (`Operations`, `OperationsItem`) REFERENCES `data_platform_production_operations_item_data` (`Operations`, `OperationsItem`),
+    CONSTRAINT `DPFMDeliveryDocumentItemDataBillOfMaterial_fk` FOREIGN KEY (`BillOfMaterial`, `BillOfMaterialItem`) REFERENCES `data_platform_production_bill_of_material_item_data` (`BillOfMaterial`, `BillOfMaterialItem`),
     CONSTRAINT `DPFMDeliveryDocumentItemDataPaymentTerms_fk` FOREIGN KEY (`PaymentTerms`) REFERENCES `data_platform_payment_terms_payment_terms_data` (`PaymentTerms`),
     CONSTRAINT `DPFMDeliveryDocumentItemDataPaymentMethod_fk` FOREIGN KEY (`PaymentMethod`) REFERENCES `data_platform_payment_method_payment_method_data` (`PaymentMethod`),
-    -- CONSTRAINT `DPFMDeliveryDocumentItemDataProject_fk` FOREIGN KEY (`Project`) REFERENCES `data_platform_project_project_data` (`Project`),　テーブルなし
-    -- CONSTRAINT `DPFMDeliveryDocumentItemDataWBSElement_fk` FOREIGN KEY (`Project`, `WBSElement`) REFERENCES `data_platform_project_wbs_element_data` (`Project`, `WBSElement`),　テーブルなし
+    CONSTRAINT `DPFMDeliveryDocumentItemDataProject_fk` FOREIGN KEY (`Project`) REFERENCES `data_platform_project_project_data` (`Project`),
+    CONSTRAINT `DPFMDeliveryDocumentItemDataWBSElement_fk` FOREIGN KEY (`Project`, `WBSElement`) REFERENCES `data_platform_project_wbs_element_data` (`Project`, `WBSElement`),
     -- CONSTRAINT `DPFMDeliveryDocumentItemDataTaxCode_fk` FOREIGN KEY (`TaxCode`) REFERENCES `data_platform_tax_code_tax_code_data` (`TaxCode`),　不明
     CONSTRAINT `DPFMDeliveryDocumentItemDataCountryOfOrigin_fk` FOREIGN KEY (`CountryOfOrigin`) REFERENCES `data_platform_country_country_data` (`Country`),
     CONSTRAINT `DPFMDeliveryDocumentItemDataCountryOfOriginLanguage_fk` FOREIGN KEY (`CountryOfOriginLanguage`) REFERENCES `data_platform_language_language_data` (`Language`),
