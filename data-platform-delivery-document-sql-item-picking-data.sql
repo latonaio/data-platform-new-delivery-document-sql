@@ -13,10 +13,12 @@ CREATE TABLE `data_platform_delivery_document_item_picking_data`
     `DeliverToPlant`                                      varchar(4) NOT NULL,
     `DeliverToPlantStorageLocation`                       varchar(4) NOT NULL,
     `DeliverToPlantStorageBin`                            varchar(10) DEFAULT NULL,
+    `DeliverToPlantKanbanContainer`                       int(16) DEFAULT NULL,
     `DeliverFromParty`                                    int(12) NOT NULL,
     `DeliverFromPlant`                                    varchar(4) NOT NULL,
     `DeliverFromPlantStorageLocation`                     varchar(4) NOT NULL,
     `DeliverFromPlantStorageBin`                          varchar(10) DEFAULT NULL,
+    `DeliverFromPlantKanbanContainer`                     int(16) DEFAULT NULL,
     `DeliverToPlantPlannedPickingQuantityInBaseUnit`      float(15) NOT NULL,
     `DeliverFromPlantPlannedPickingQuantityInBaseUnit`    float(15) NOT NULL,
     `DeliverToPlantPlannedPickingDate`                    date NOT NULL,
@@ -30,6 +32,9 @@ CREATE TABLE `data_platform_delivery_document_item_picking_data`
     `DeliverFromPlantActualPickingDate`                   date DEFAULT NULL,
     `DeliverFromPlantActualPickingTime`                   time DEFAULT NULL,
     `ItemPickingIsCompleted`                              tinyint(1) DEFAULT NULL,
+    `ExternalReferenceDocument`                           varchar(100) DEFAULT NULL,
+    `ExternalReferenceDocumentItem`                       varchar(10) DEFAULT NULL,
+    `ExternalReferenceDocumentItemPickingID`              varchar(10) DEFAULT NULL,
     `CreationDate`                                        date NOT NULL,
     `CreationTime`                                        time NOT NULL,
     `LastChangeDate`                                      date NOT NULL,
@@ -42,10 +47,12 @@ CREATE TABLE `data_platform_delivery_document_item_picking_data`
     CONSTRAINT `DPFMDeliveryDocumentItemPickingData_fk` FOREIGN KEY (`DeliveryDocument`, `DeliveryDocumentItem`) REFERENCES `data_platform_delivery_document_item_data` (`DeliveryDocument`, `DeliveryDocumentItem`),
     CONSTRAINT `DPFMDeliveryDocumentItemPickingDataSCRDeliveryID_fk` FOREIGN KEY (`SupplyChainRelationshipID`, `SupplyChainRelationshipDeliveryID`, `Buyer`, `Seller`, `DeliverToParty`, `DeliverFromParty`) REFERENCES `data_platform_scr_delivery_relation_data` (`SupplyChainRelationshipID`, `SupplyChainRelationshipDeliveryID`, `Buyer`, `Seller`, `DeliverToParty`, `DeliverFromParty`),
     CONSTRAINT `DPFMDeliveryDocumentItemPickingDataSCRDeliveryPlantID_fk` FOREIGN KEY (`SupplyChainRelationshipID`, `SupplyChainRelationshipDeliveryID`, `SupplyChainRelationshipDeliveryPlantID`, `Buyer`, `Seller`, `DeliverToParty`, `DeliverFromParty`, `DeliverToPlant`, `DeliverFromPlant`) REFERENCES `data_platform_scr_delivery_plant_relation_data` (`SupplyChainRelationshipID`, `SupplyChainRelationshipDeliveryID`, `SupplyChainRelationshipDeliveryPlantID`, `Buyer`, `Seller`, `DeliverToParty`, `DeliverFromParty`, `DeliverToPlant`, `DeliverFromPlant`),
-    CONSTRAINT `DPFMDeliveryDocumentItemPickingDataDeliverToPlantStorageLocation_fk` FOREIGN KEY (`DeliverToParty`, `DeliverToPlant`, `DeliverToPlantStorageLocation`) REFERENCES `data_platform_plant_general_data` (`BusinessPartner`, `Plant`, `StorageLocation`),
-    -- CONSTRAINT `DPFMDeliveryDocumentItemPickingDataDeliverFromPlantStorageLocation_fk` FOREIGN KEY (`DeliverFromParty`, `DeliverFromPlant`, `DeliverFromPlantStorageLocation`) REFERENCES `data_platform_plant_general_data` (`BusinessPartner`, `Plant`, `StorageLocation`),  too long
+    CONSTRAINT `DPFMDeliveryDocumentItemPickingDataDeliverToPlantSL_fk` FOREIGN KEY (`DeliverToParty`, `DeliverToPlant`, `DeliverToPlantStorageLocation`) REFERENCES `data_platform_plant_general_data` (`BusinessPartner`, `Plant`, `StorageLocation`),
+    CONSTRAINT `DPFMDeliveryDocumentItemPickingDataDeliverFromPlantSL_fk` FOREIGN KEY (`DeliverFromParty`, `DeliverFromPlant`, `DeliverFromPlantStorageLocation`) REFERENCES `data_platform_plant_general_data` (`BusinessPartner`, `Plant`, `StorageLocation`),  too long
     CONSTRAINT `DPFMDeliveryDocumentItemPickingDataDeliverToPlantStorageBin_fk` FOREIGN KEY (`Product`, `DeliverToParty`, `DeliverToPlant`, `DeliverToPlantStorageLocation`, `DeliverToPlantStorageBin`) REFERENCES `data_platform_product_master_storage_bin_data` (`Product`, `BusinessPartner`, `Plant`, `StorageLocation`, `StorageBin`),  
-    CONSTRAINT `DPFMDeliveryDocumentItemPickingDataDeliverFromPlantStorageBin_fk` FOREIGN KEY (`Product`, `DeliverFromParty`, `DeliverFromPlant`, `DeliverFromPlantStorageLocation`, `DeliverFromPlantStorageBin`) REFERENCES `data_platform_product_master_storage_bin_data` (`Product`, `BusinessPartner`, `Plant`, `StorageLocation`, `StorageBin`)
+    CONSTRAINT `DPFMDeliveryDocumentItemPickingDataDeliverFromPlantStorageBin_fk` FOREIGN KEY (`Product`, `DeliverFromParty`, `DeliverFromPlant`, `DeliverFromPlantStorageLocation`, `DeliverFromPlantStorageBin`) REFERENCES `data_platform_product_master_storage_bin_data` (`Product`, `BusinessPartner`, `Plant`, `StorageLocation`, `StorageBin`),
+    CONSTRAINT `DPFMDeliveryDocumentItemPickingDataDeliverToPlantKanbanContainer_fk` FOREIGN KEY (`Product`, `DeliverToParty`, `DeliverToPlant`, `DeliverToPlantStorageLocation`, `DeliverToPlantStorageBin`, `DeliverToPlantKanbanContainer`) REFERENCES `data_platform_kanban_container_header_data` (`Product`, `BusinessPartner`, `Plant`, `StorageLocation`, `StorageBin`, `DeliverToPlantKanbanContainer`),  
+    CONSTRAINT `DPFMDeliveryDocumentItemPickingDataDeliverFromPlantKanbanContainer_fk` FOREIGN KEY (`Product`, `DeliverFromParty`, `DeliverFromPlant`, `DeliverFromPlantStorageLocation`, `DeliverFromPlantStorageBin`, `DeliverFromPlantKanbanContainer`) REFERENCES `data_platform_kanban_container_header_data` (`Product`, `BusinessPartner`, `Plant`, `StorageLocation`, `StorageBin`, `DeliverFromPlantKanbanContainer`)
 
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4;
