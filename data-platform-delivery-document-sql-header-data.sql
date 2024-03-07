@@ -71,29 +71,29 @@ CREATE TABLE `data_platform_delivery_document_header_data`
     `LastChangeTime`                           time NOT NULL,
     `IsCancelled`                              tinyint(1) DEFAULT NULL,
     `IsMarkedForDeletion`                      tinyint(1) DEFAULT NULL,
-    
+
     PRIMARY KEY (`DeliveryDocument`),
 
     CONSTRAINT `DPFMDeliveryDocumentHeaderDataSCRDeliveryID_fk` FOREIGN KEY (`SupplyChainRelationshipID`, `SupplyChainRelationshipDeliveryID`, `Buyer`, `Seller`, `DeliverToParty`, `DeliverFromParty`) REFERENCES `data_platform_scr_delivery_relation_data` (`SupplyChainRelationshipID`, `SupplyChainRelationshipDeliveryID`, `Buyer`, `Seller`, `DeliverToParty`, `DeliverFromParty`),
     CONSTRAINT `DPFMDeliveryDocumentHeaderDataSCRDeliveryPlantID_fk` FOREIGN KEY (`SupplyChainRelationshipID`, `SupplyChainRelationshipDeliveryID`, `SupplyChainRelationshipDeliveryPlantID`, `Buyer`, `Seller`, `DeliverToParty`, `DeliverFromParty`, `DeliverToPlant`, `DeliverFromPlant`) REFERENCES `data_platform_scr_delivery_plant_relation_data` (`SupplyChainRelationshipID`, `SupplyChainRelationshipDeliveryID`, `SupplyChainRelationshipDeliveryPlantID`, `Buyer`, `Seller`, `DeliverToParty`, `DeliverFromParty`, `DeliverToPlant`, `DeliverFromPlant`),
     CONSTRAINT `DPFMDeliveryDocumentHeaderDataSCRBillingID_fk` FOREIGN KEY (`SupplyChainRelationshipID`, `SupplyChainRelationshipBillingID`, `Buyer`, `Seller`, `BillToParty`, `BillFromParty`) REFERENCES `data_platform_scr_billing_relation_data` (`SupplyChainRelationshipID`, `SupplyChainRelationshipBillingID`, `Buyer`, `Seller`, `BillToParty`, `BillFromParty`),
     CONSTRAINT `DPFMDeliveryDocumentHeaderDataSCRPaymentID_fk` FOREIGN KEY (`SupplyChainRelationshipID`, `SupplyChainRelationshipBillingID`, `SupplyChainRelationshipPaymentID`, `Buyer`, `Seller`, `BillToParty`, `BillFromParty`, `Payer`, `Payee`) REFERENCES `data_platform_scr_payment_relation_data` (`SupplyChainRelationshipID`, `SupplyChainRelationshipBillingID`, `SupplyChainRelationshipPaymentID`, `Buyer`, `Seller`, `BillToParty`, `BillFromParty`, `Payer`, `Payee`),
-    CONSTRAINT `DPFMDeliveryDocumentHeaderDataSCRFreightID_fk` FOREIGN KEY (`SupplyChainRelationshipID`, `SupplyChainRelationshipDeliveryID`, `SupplyChainRelationshipDeliveryPlantID`, `SupplyChainRelationshipFreightID`, `Buyer`, `Seller`, `DeliverToParty`, `DeliverFromParty`, `DeliverToPlant`, `DeliverFromPlant`, `FreightPartner`) REFERENCES `data_platform_scr_freight_relation_data` (`SupplyChainRelationshipID`, `SupplyChainRelationshipDeliveryID`, `SupplyChainRelationshipDeliveryPlantID`, `SupplyChainRelationshipFreightID`, `Buyer`, `Seller`, `DeliverToParty`, `DeliverFromParty`, `DeliverToPlant`, `DeliverFromPlant`, `FreightPartner`),
+--     CONSTRAINT `DPFMDeliveryDocumentHeaderDataSCRFreightID_fk` FOREIGN KEY (`SupplyChainRelationshipID`, `SupplyChainRelationshipDeliveryID`, `SupplyChainRelationshipDeliveryPlantID`, `SupplyChainRelationshipFreightID`, `Buyer`, `Seller`, `DeliverToParty`, `DeliverFromParty`, `DeliverToPlant`, `DeliverFromPlant`, `FreightPartner`) REFERENCES `data_platform_scr_freight_relation_data` (`SupplyChainRelationshipID`, `SupplyChainRelationshipDeliveryID`, `SupplyChainRelationshipDeliveryPlantID`, `SupplyChainRelationshipFreightID`, `Buyer`, `Seller`, `DeliverToParty`, `DeliverFromParty`, `DeliverToPlant`, `DeliverFromPlant`, `FreightPartner`),
     CONSTRAINT `DPFMDeliveryDocumentHeaderDataBillToCountry_fk` FOREIGN KEY (`BillToCountry`) REFERENCES `data_platform_country_country_data` (`Country`),
     CONSTRAINT `DPFMDeliveryDocumentHeaderDataBillFromCountry_fk` FOREIGN KEY (`BillFromCountry`) REFERENCES `data_platform_country_country_data` (`Country`),
     CONSTRAINT `DPFMDeliveryDocumentHeaderDataOrderItem_fk` FOREIGN KEY (`OrderID`, `OrderItem`) REFERENCES `data_platform_orders_item_data` (`OrderID`, `OrderItem`),
     CONSTRAINT `DPFMDeliveryDocumentHeaderDataContract_fk` FOREIGN KEY (`Contract`) REFERENCES `data_platform_contract_header_data` (`Contract`),
     CONSTRAINT `DPFMDeliveryDocumentHeaderDataContractItem_fk` FOREIGN KEY (`Contract`, `ContractItem`) REFERENCES `data_platform_contract_item_data` (`Contract`, `ContractItem`),
-    CONSTRAINT `DPFMDeliveryDocumentHeaderDataProductionVersionItem_fk` FOREIGN KEY (`ProductionVersion`, `ProductionVersionItem`) REFERENCES `data_platform_production_version_item_data` (`ProductionVersion`, `ProductionVersionItem`),
+--     CONSTRAINT `DPFMDeliveryDocumentHeaderDataProductionVersionItem_fk` FOREIGN KEY (`ProductionVersion`, `ProductionVersionItem`) REFERENCES `data_platform_production_version_item_data` (`ProductionVersion`, `ProductionVersionItem`),
     CONSTRAINT `DPFMDeliveryDocumentHeaderDataProductionOrderItem_fk` FOREIGN KEY (`ProductionOrder`, `ProductionOrderItem`) REFERENCES `data_platform_production_order_item_data` (`ProductionOrder`, `ProductionOrderItem`),
     CONSTRAINT `DPFMDeliveryDocumentHeaderDataProductionOrderItemOperation_fk` FOREIGN KEY (`ProductionOrder`, `ProductionOrderItem`, `Operations`, `OperationsItem`, `OperationID`) REFERENCES `data_platform_production_order_item_operation_data` (`ProductionOrder`, `ProductionOrderItem`, `Operations`, `OperationsItem`, `OperationID`),
     CONSTRAINT `DPFMDeliveryDocumentHeaderDataBillOfMaterial_fk` FOREIGN KEY (`BillOfMaterial`, `BillOfMaterialItem`) REFERENCES `data_platform_bill_of_material_item_data` (`BillOfMaterial`, `BillOfMaterialItem`),
     CONSTRAINT `DPFMDeliveryDocumentHeaderDataDeliverToPlantTimeZone_fk` FOREIGN KEY (`DeliverToPlantTimeZone`) REFERENCES `data_platform_time_zone_time_zone_data` (`TimeZone`),
     CONSTRAINT `DPFMDeliveryDocumentHeaderDataDeliverFromPlantTimeZone_fk` FOREIGN KEY (`DeliverFromPlantTimeZone`) REFERENCES `data_platform_time_zone_time_zone_data` (`TimeZone`),
-    CONSTRAINT `DPFMDeliveryDocumentHeaderDataFreightOrder_fk` FOREIGN KEY (`FreightOrder`) REFERENCES `data_platform_freight_order_header_data` (`FreightOrder`),
+--     CONSTRAINT `DPFMDeliveryDocumentHeaderDataFreightOrder_fk` FOREIGN KEY (`FreightOrder`) REFERENCES `data_platform_freight_order_header_data` (`FreightOrder`),
     CONSTRAINT `DPFMDeliveryDocumentHeaderDataHeaderWeightUnit_fk` FOREIGN KEY (`HeaderWeightUnit`) REFERENCES `data_platform_quantity_unit_quantity_unit_data` (`QuantityUnit`),
     CONSTRAINT `DPFMDeliveryDocumentHeaderDataIncoterms_fk` FOREIGN KEY (`Incoterms`) REFERENCES `data_platform_incoterms_incoterms_data` (`Incoterms`),
     CONSTRAINT `DPFMDeliveryDocumentHeaderDataTransactionCurrency_fk` FOREIGN KEY (`TransactionCurrency`) REFERENCES `data_platform_currency_currency_data` (`Currency`)
-    
+
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4;
